@@ -1,10 +1,14 @@
 package com.example.snackbar.ui
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.marginBottom
 import com.example.snackbar.R
 import com.example.snackbar.`interface`.ContractMainActivity
 import com.example.snackbar.domain.Usuario
@@ -109,6 +113,28 @@ class MainActivity : AppCompatActivity(), ContractMainActivity {
             replace(R.id.flFragDetails, fragDetailGastos)
             commit()
         }
+    }
+
+    override fun gerarDialog(vararg args: String) {
+        val campos: LinearLayout = LinearLayout(
+            this
+        )
+
+        campos.orientation = LinearLayout.HORIZONTAL
+        for (arg in args) {
+            val campo = TextView(
+                this
+            )
+            campo.text = arg
+            campos.addView(campo)
+        }
+
+        val alertDialog = AlertDialog.Builder(
+            this
+        )
+
+        alertDialog.setView(campos)
+        alertDialog.show()
     }
 
     fun showToast(msg: String) {
