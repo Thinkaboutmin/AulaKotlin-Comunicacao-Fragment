@@ -20,4 +20,5 @@
     <string name="tv_home">Home</string>
     <string name="tvEntrada">Entradas</string>
     <string name="tvGasto">Gastos</string>
+    <string name="value">Valor</string>
 </resources>
